@@ -1,3 +1,6 @@
+###############################################################################
+#                     To install open street map library                      #
+###############################################################################
 pip install osmnx
 
 import osmnx as ox
@@ -6,7 +9,7 @@ center_point = (28.613836,  77.207906)
 G = ox.graph_from_point(center_point, dist=50000,
                         retain_all=True, simplify=True, network_type='all')
 ###############################################################################
-#                               4. Unpack Data                                #
+#                               Unpack Data                                   #
 ###############################################################################
 u = []
 v = []
@@ -18,7 +21,10 @@ for uu, vv, kkey, ddata in G.edges(keys=True, data=True):
     key.append(kkey)
     data.append(ddata)
 
-# Lists to store colors and widths
+###############################################################################
+#                    Lists of road colors and widths                         #
+###############################################################################
+
 roadColors = []
 roadWidths = []
 
@@ -63,11 +69,17 @@ for item in data:
 
     roadWidths.append(linewidth)
 
-    #Center of the map
+###############################################################################
+#                             Center of the map                               #
+###############################################################################
+
 latitude =  28.613836
 longitude = 77.207906
 
-#Limit borders
+###############################################################################
+#                             Map border limits                               #
+###############################################################################
+
 north = latitude + 0.50
 south = latitude - 0.50
 east = longitude + 0.50
